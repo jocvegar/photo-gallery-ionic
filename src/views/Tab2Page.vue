@@ -30,6 +30,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { usePhotoGallery, UserPhoto } from "@/composables/usePhotoGallery";
 import {
   IonPage,
   IonHeader,
@@ -45,6 +46,7 @@ import {
   IonImg,
 } from "@ionic/vue";
 import { camera, trash, close } from "ionicons/icons";
+
 export default defineComponent({
   name: "Tab2Page",
   components: {
@@ -62,45 +64,45 @@ export default defineComponent({
     IonImg,
   },
   setup() {
-    const takePhoto = () => console.log("Taking photo...");
+    const { photos, takePhoto } = usePhotoGallery();
     const showActionSheet = (photo: any) => {
       console.log("Showing action sheet...");
       console.log("photo: ", photo);
     };
-    const photos = [
-      {
-        webviewPath: "https://picsum.photos/200/300",
-        base64: "https://picsum.photos/200/300",
-      },
-      {
-        webviewPath: "https://picsum.photos/200/300",
-        base64: "https://picsum.photos/200/300",
-      },
-      {
-        webviewPath: "https://picsum.photos/200/300",
-        base64: "https://picsum.photos/200/300",
-      },
-      {
-        webviewPath: "https://picsum.photos/200/300",
-        base64: "https://picsum.photos/200/300",
-      },
-      {
-        webviewPath: "https://picsum.photos/200/300",
-        base64: "https://picsum.photos/200/300",
-      },
-      {
-        webviewPath: "https://picsum.photos/200/300",
-        base64: "https://picsum.photos/200/300",
-      },
-      {
-        webviewPath: "https://picsum.photos/200/300",
-        base64: "https://picsum.photos/200/300",
-      },
-      {
-        webviewPath: "https://picsum.photos/200/300",
-        base64: "https://picsum.photos/200/300",
-      },
-    ];
+    // const photos = [
+    //   {
+    //     webviewPath: "https://picsum.photos/200/300",
+    //     base64: "https://picsum.photos/200/300",
+    //   },
+    //   {
+    //     webviewPath: "https://picsum.photos/200/300",
+    //     base64: "https://picsum.photos/200/300",
+    //   },
+    //   {
+    //     webviewPath: "https://picsum.photos/200/300",
+    //     base64: "https://picsum.photos/200/300",
+    //   },
+    //   {
+    //     webviewPath: "https://picsum.photos/200/300",
+    //     base64: "https://picsum.photos/200/300",
+    //   },
+    //   {
+    //     webviewPath: "https://picsum.photos/200/300",
+    //     base64: "https://picsum.photos/200/300",
+    //   },
+    //   {
+    //     webviewPath: "https://picsum.photos/200/300",
+    //     base64: "https://picsum.photos/200/300",
+    //   },
+    //   {
+    //     webviewPath: "https://picsum.photos/200/300",
+    //     base64: "https://picsum.photos/200/300",
+    //   },
+    //   {
+    //     webviewPath: "https://picsum.photos/200/300",
+    //     base64: "https://picsum.photos/200/300",
+    //   },
+    // ];
     return {
       camera,
       trash,
